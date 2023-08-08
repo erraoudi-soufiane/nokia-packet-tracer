@@ -7,6 +7,7 @@ import Subcategories, {
 import Devices from "./components/Devices";
 import NavBar from "./components/NavBar";
 import { useState } from "react";
+import Board from "./components/Board";
 
 function App() {
   const [category, setSelectedCategory] = useState<Category | null>(null);
@@ -48,6 +49,7 @@ function App() {
           </Stack>
           <Devices selctedSubcategory={subcategory} />
         </HStack>
+        <Board />
       </GridItem>
     </Grid>
   );
