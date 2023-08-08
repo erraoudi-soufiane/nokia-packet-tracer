@@ -1,10 +1,13 @@
 import { Grid, GridItem, HStack, Show, Stack } from "@chakra-ui/react";
 import Categories from "./components/Categories";
-import SubCategories from "./components/SubCategories";
+import SubCategories, { Category } from "./components/SubCategories";
 import Devices from "./components/Devices";
 import NavBar from "./components/NavBar";
+import { useState } from "react";
 
 function App() {
+  const [category, setSelectedCategory] = useState<Category | null>(null);
+
   return (
     <Grid
       templateAreas={{
@@ -24,11 +27,13 @@ function App() {
         <GridItem area="aside" paddingX={6}></GridItem>
       </Show>
 
-      <GridItem area="main">
+      <GridItem area="main" padding={3}>
         <HStack>
-          <Stack>
-            <Categories />
-            <SubCategories />
+          <Stack marginRight={2}>
+            <Categories
+              onSelectCategory={(category) => setSelectedCategory(category)}
+            />
+            <SubCategories selectedCategory={category} />
           </Stack>
           <Devices />
         </HStack>

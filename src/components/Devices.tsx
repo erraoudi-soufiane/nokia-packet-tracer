@@ -12,7 +12,13 @@ const Components = () => {
   ];
 
   return (
-    <HStack padding={2} bg="white" borderRadius={10}>
+    <HStack
+      backgroundColor={"white"}
+      height={"90px"}
+      padding={2}
+      borderRadius={14}
+      width={"100%"}
+    >
       {devices.map((device) => (
         <Tooltip label={device.name} aria-label="A tooltip">
           <Image src={device.url} />

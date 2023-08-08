@@ -1,21 +1,30 @@
-import { HStack, Tooltip, Image } from "@chakra-ui/react";
-import React from "react";
+import { HStack, Tooltip, Image, Box, Button } from "@chakra-ui/react";
 
-const SubCategories = () => {
-  const subcategories = [
-    { name: "Network", url: "Network" },
-    { name: "End", url: "End" },
-    { name: "Comopnents", url: "Comopnents" },
-    { name: "Connections", url: "Connections" },
-    { name: "MultiUser", url: "MultiUser" },
-    { name: "Miscella", url: "Miscella" },
-  ];
+export interface Category {
+  name: string;
+  url: string;
+  subcategories: SubCategory[];
+}
+
+interface SubCategory {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  selectedCategory: Category | null;
+}
+
+const SubCategories = ({ selectedCategory }: Props) => {
   return (
-    <HStack padding={2} bg="white" borderRadius={10}>
-      {subcategories.map((subcategory) => (
-        <Tooltip label={subcategory.name} aria-label="A tooltip">
-          <Image src={subcategory.url} />
-        </Tooltip>
+    <HStack borderRadius={14} backgroundColor={"white"} padding={2}>
+      {selectedCategory?.subcategories.map((subcategory) => (
+        <Box>
+          <Tooltip label={subcategory.name} aria-label="A tooltip">
+            {/* <Image src={subcategory.url} boxSize={"25px"} /> */}
+            <Button colorScheme="blue">{subcategory.url}</Button>
+          </Tooltip>
+        </Box>
       ))}
     </HStack>
   );
