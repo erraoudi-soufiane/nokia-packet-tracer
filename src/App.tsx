@@ -1,12 +1,18 @@
 import { Grid, GridItem, HStack, Show, Stack } from "@chakra-ui/react";
 import Categories from "./components/Categories";
-import SubCategories, { Category } from "./components/SubCategories";
+import Subcategories, {
+  Category,
+  Subcategory,
+} from "./components/Subcategories";
 import Devices from "./components/Devices";
 import NavBar from "./components/NavBar";
 import { useState } from "react";
 
 function App() {
   const [category, setSelectedCategory] = useState<Category | null>(null);
+  const [subcategory, setSelectedSubcategory] = useState<Subcategory | null>(
+    null
+  );
 
   return (
     <Grid
@@ -33,9 +39,14 @@ function App() {
             <Categories
               onSelectCategory={(category) => setSelectedCategory(category)}
             />
-            <SubCategories selectedCategory={category} />
+            <Subcategories
+              selectedCategory={category}
+              onSelectSubcategory={(subcategory) =>
+                setSelectedSubcategory(subcategory)
+              }
+            />
           </Stack>
-          <Devices />
+          <Devices selctedSubcategory={subcategory} />
         </HStack>
       </GridItem>
     </Grid>
