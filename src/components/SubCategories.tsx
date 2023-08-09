@@ -1,4 +1,4 @@
-import { HStack, Tooltip, Image, Box, Button } from "@chakra-ui/react";
+import { HStack, Tooltip, Image, Box, Button, Text } from "@chakra-ui/react";
 
 export interface Category {
   name: string;
@@ -12,7 +12,7 @@ export interface Subcategory {
   devices: Device[];
 }
 
-interface Device {
+export interface Device {
   name: string;
   url: string;
 }
@@ -31,10 +31,12 @@ const Subcategories = ({ selectedCategory, onSelectSubcategory }: Props) => {
       height={"35px"}
     >
       {selectedCategory?.subcategories.map((subcategory) => (
-        <Box onClick={() => onSelectSubcategory(subcategory)}>
+        <Box
+          key={subcategory.name}
+          onClick={() => onSelectSubcategory(subcategory)}
+        >
           <Tooltip label={subcategory.name} aria-label="A tooltip">
-            {/* <Image src={subcategory.url} boxSize={"25px"} /> */}
-            <Button colorScheme="blue">{subcategory.url}</Button>
+            <Image src={subcategory.url} boxSize={"25px"} />
           </Tooltip>
         </Box>
       ))}

@@ -18,74 +18,74 @@ const Categories = ({ onSelectCategory }: Props) => {
       subcategories: [
         {
           name: "Network1",
-          url: "Network1",
+          url: NetworkDevices,
           devices: [
-            { name: "Network11", url: "Network11" },
-            { name: "Network12", url: "Network12" },
-            { name: "Network13", url: "Network13" },
-            { name: "Network14", url: "Network14" },
-            { name: "Network15", url: "Network15" },
-            { name: "Network16", url: "Network16" },
+            { name: "Network11", url: NetworkDevices },
+            { name: "Network12", url: NetworkDevices },
+            { name: "Network13", url: NetworkDevices },
+            { name: "Network14", url: NetworkDevices },
+            { name: "Network15", url: NetworkDevices },
+            { name: "Network16", url: NetworkDevices },
           ],
         },
         {
           name: "Network2",
-          url: "Network2",
+          url: NetworkDevices,
           devices: [
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
           ],
         },
         {
           name: "Network3",
-          url: "Network3",
+          url: NetworkDevices,
           devices: [
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
           ],
         },
         {
-          name: "Network1",
-          url: "Network1",
+          name: "Network4",
+          url: NetworkDevices,
           devices: [
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
           ],
         },
         {
-          name: "Network2",
-          url: "Network2",
+          name: "Network5",
+          url: NetworkDevices,
           devices: [
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
           ],
         },
         {
-          name: "Network3",
-          url: "Network3",
+          name: "Network6",
+          url: NetworkDevices,
           devices: [
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
+            { name: "", url: NetworkDevices },
           ],
         },
       ],
@@ -96,19 +96,19 @@ const Categories = ({ onSelectCategory }: Props) => {
       subcategories: [
         {
           name: "End1",
-          url: "End1",
+          url: firewall,
           devices: [
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
+            { name: "", url: firewall },
+            { name: "", url: firewall },
+            { name: "", url: firewall },
+            { name: "", url: firewall },
+            { name: "", url: firewall },
+            { name: "", url: firewall },
           ],
         },
         {
           name: "End2",
-          url: "End2",
+          url: firewall,
           devices: [
             { name: "", url: "" },
             { name: "", url: "" },
@@ -120,7 +120,7 @@ const Categories = ({ onSelectCategory }: Props) => {
         },
         {
           name: "End3",
-          url: "End3",
+          url: firewall,
           devices: [
             { name: "", url: "" },
             { name: "", url: "" },
@@ -138,7 +138,7 @@ const Categories = ({ onSelectCategory }: Props) => {
       subcategories: [
         {
           name: "components1",
-          url: "components1",
+          url: router,
           devices: [
             { name: "", url: "" },
             { name: "", url: "" },
@@ -150,7 +150,7 @@ const Categories = ({ onSelectCategory }: Props) => {
         },
         {
           name: "components2",
-          url: "components2",
+          url: router,
           devices: [
             { name: "", url: "" },
             { name: "", url: "" },
@@ -162,7 +162,7 @@ const Categories = ({ onSelectCategory }: Props) => {
         },
         {
           name: "components3",
-          url: "components3",
+          url: router,
           devices: [
             { name: "", url: "" },
             { name: "", url: "" },
@@ -174,7 +174,7 @@ const Categories = ({ onSelectCategory }: Props) => {
         },
         {
           name: "components4",
-          url: "components4",
+          url: router,
           devices: [
             { name: "", url: "" },
             { name: "", url: "" },
@@ -192,7 +192,7 @@ const Categories = ({ onSelectCategory }: Props) => {
       subcategories: [
         {
           name: "Connections1",
-          url: "Connections1",
+          url: workgroupSwitch,
           devices: [
             { name: "", url: "" },
             { name: "", url: "" },
@@ -204,7 +204,7 @@ const Categories = ({ onSelectCategory }: Props) => {
         },
         {
           name: "Connections2",
-          url: "Connections2",
+          url: workgroupSwitch,
           devices: [
             { name: "", url: "" },
             { name: "", url: "" },
@@ -216,7 +216,7 @@ const Categories = ({ onSelectCategory }: Props) => {
         },
         {
           name: "Connections3",
-          url: "Connections3",
+          url: workgroupSwitch,
           devices: [
             { name: "", url: "" },
             { name: "", url: "" },
@@ -234,7 +234,7 @@ const Categories = ({ onSelectCategory }: Props) => {
       subcategories: [
         {
           name: "MultiUser1",
-          url: "MultiUser1",
+          url: wirelessTransport,
           devices: [
             { name: "", url: "" },
             { name: "", url: "" },
@@ -246,7 +246,7 @@ const Categories = ({ onSelectCategory }: Props) => {
         },
         {
           name: "MultiUser2",
-          url: "MultiUser2",
+          url: wirelessTransport,
           devices: [
             { name: "", url: "" },
             { name: "", url: "" },
@@ -258,7 +258,7 @@ const Categories = ({ onSelectCategory }: Props) => {
         },
         {
           name: "MultiUser3",
-          url: "MultiUser3",
+          url: wirelessTransport,
           devices: [
             { name: "", url: "" },
             { name: "", url: "" },
@@ -276,7 +276,7 @@ const Categories = ({ onSelectCategory }: Props) => {
       subcategories: [
         {
           name: "Miscella1",
-          url: "Miscella1",
+          url: wirelessTransport,
           devices: [
             { name: "", url: "" },
             { name: "", url: "" },
@@ -288,7 +288,7 @@ const Categories = ({ onSelectCategory }: Props) => {
         },
         {
           name: "Miscella2",
-          url: "Miscella2",
+          url: wirelessTransport,
           devices: [
             { name: "", url: "" },
             { name: "", url: "" },
@@ -300,7 +300,7 @@ const Categories = ({ onSelectCategory }: Props) => {
         },
         {
           name: "Miscella3",
-          url: "Miscella3",
+          url: wirelessTransport,
           devices: [
             { name: "", url: "" },
             { name: "", url: "" },
@@ -322,7 +322,11 @@ const Categories = ({ onSelectCategory }: Props) => {
       padding={2}
     >
       {categories.map((category) => (
-        <Box onClick={() => onSelectCategory(category)} marginRight={4}>
+        <Box
+          key={category.name}
+          onClick={() => onSelectCategory(category)}
+          marginRight={4}
+        >
           <Tooltip label={category.name} aria-label="A tooltip">
             <Image boxSize={"25px"} src={category.url} />
           </Tooltip>
