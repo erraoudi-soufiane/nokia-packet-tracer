@@ -46,6 +46,7 @@ const Board = ({
         onEdgesChange={onEdgesChange}
       >
         <Background color="#ccc" variant={variant as BackgroundVariant} />
+        <MiniMap nodeStrokeWidth={3} zoomable pannable />
       </ReactFlow>
     </Box>
   );
