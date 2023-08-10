@@ -7,13 +7,21 @@ import Subcategories, {
 } from "./components/Subcategories";
 import Devices from "./components/Devices";
 import NavBar from "./components/NavBar";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Board from "./components/Board";
 import { useDrop } from "react-dnd";
+import {
+  Connection,
+  Edge,
+  addEdge,
+  useEdgesState,
+  useNodesState,
+} from "reactflow";
+import DeviceInBoard from "./components/DeviceInBoard";
 
-export interface DroppedDevice {
-  device: Device;
-  dropPosition: { x: number; y: number };
+interface DropPosition {
+  x: number;
+  y: number;
 }
 
 function App() {
@@ -21,7 +29,8 @@ function App() {
   const [subcategory, setSelectedSubcategory] = useState<Subcategory | null>(
     null
   );
-  const [board, setBoard] = useState<DroppedDevice[]>([]); // list of components on board
+  const [nodes, setNodes, onNodesChange] = useNodesState([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState<Edge[]>([]);
 
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "device",
@@ -40,14 +49,38 @@ function App() {
     }),
   }));
 
-  const addImageToBoard = (
-    device: Device,
-    dropPosition: { x: number; y: number }
-  ) => {
-    setBoard((board) => [...board, { device, dropPosition }]);
-    console.log("component added to board");
+  const addImageToBoard = (device: Device, dropPosition: DropPosition) => {
+    console.log("dropPosition");
     console.log(dropPosition);
+    setNodes((nodes) => [
+      ...nodes,
+      {
+        id: String(nodes.length + 1),
+        position: { x: 0, y: 0 },
+        data: { label: <DeviceInBoard device={device} /> },
+        style: {
+          width: 50,
+          height: 50,
+          backgroundColor: "transparent",
+          border: "none",
+        },
+      },
+    ]);
   };
+
+  const onConnect = useCallback(
+    (connection: Connection) => {
+      if (connection.target && connection.source) {
+        const newEdge: Edge = {
+          id: `${connection.source}-${connection.target}`,
+          source: connection.source,
+          target: connection.target,
+        };
+        setEdges((eds) => addEdge(newEdge, eds));
+      }
+    },
+    [setEdges]
+  );
 
   return (
     <Grid
@@ -84,7 +117,13 @@ function App() {
           <Devices selctedSubcategory={subcategory} />
         </HStack>
         <Box ref={drop}>
-          <Board board={board} />
+          <Board
+            board={nodes}
+            edges={edges}
+            onNodesChange={onNodesChange}
+            onConnect={onConnect}
+            onEdgesChange={onEdgesChange}
+          />
         </Box>
       </GridItem>
     </Grid>

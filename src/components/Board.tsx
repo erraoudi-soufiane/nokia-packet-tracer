@@ -1,28 +1,45 @@
 import { Box } from "@chakra-ui/react";
-import { DroppedDevice } from "../App";
-import DeviceComponent from "./Device";
+import ReactFlow, {
+  Edge,
+  Node,
+  OnConnect,
+  OnEdgesChange,
+  OnNodesChange,
+  useEdgesState,
+} from "reactflow";
+import "reactflow/dist/style.css";
+import "../custom-react-flow.css";
 
 interface Props {
-  board: DroppedDevice[];
+  board: Node[];
+  edges: Edge[];
+  onNodesChange: OnNodesChange;
+  onConnect: OnConnect;
+  onEdgesChange: OnEdgesChange;
 }
 
-const Board = ({ board }: Props) => {
+const Board = ({
+  board,
+  onNodesChange,
+  onConnect,
+  edges,
+  onEdgesChange,
+}: Props) => {
   return (
-    <Box marginTop={3} borderRadius={14} bg={"white"} minHeight="550px">
-      {board.map((droppedDevice, index) => {
-        return (
-          <Box
-            key={index}
-            style={{
-              position: "absolute",
-              left: `${droppedDevice.dropPosition.x}px`,
-              top: `${droppedDevice.dropPosition.y}px`,
-            }}
-          >
-            <DeviceComponent device={droppedDevice.device} />
-          </Box>
-        );
-      })}
+    <Box
+      marginTop={3}
+      borderRadius={14}
+      bg={"white"}
+      minHeight="550px"
+      style={{ width: "100%", height: "500px" }}
+    >
+      <ReactFlow
+        nodes={board}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onConnect={onConnect}
+        onEdgesChange={onEdgesChange}
+      />
     </Box>
   );
 };

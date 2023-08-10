@@ -1,4 +1,4 @@
-import { Box, Image, Text, Tooltip } from "@chakra-ui/react";
+import { Box, Image, Tooltip } from "@chakra-ui/react";
 import { Device } from "./Subcategories";
 import { useDrag } from "react-dnd";
 

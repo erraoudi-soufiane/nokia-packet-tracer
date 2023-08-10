@@ -1,0 +1,11 @@
+/* custom-react-flow.css */
+
+/* Remove box shadow for normal state */
+.react-flow__node {
+    box-shadow: none;
+  }
+  
+  /* Remove box shadow for hover state */
+  .react-flow__node:hover {
+    box-shadow: none;
+  }
