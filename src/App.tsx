@@ -19,7 +19,7 @@ import {
 } from "reactflow";
 import DeviceInBoard from "./components/DeviceInBoard";
 
-interface DropPosition {
+export interface DropPosition {
   x: number;
   y: number;
 }
@@ -56,7 +56,7 @@ function App() {
       ...nodes,
       {
         id: String(nodes.length + 1),
-        position: { x: 0, y: 0 },
+        position: { x: dropPosition.x, y: dropPosition.y },
         data: { label: <DeviceInBoard device={device} /> },
         style: {
           width: 50,

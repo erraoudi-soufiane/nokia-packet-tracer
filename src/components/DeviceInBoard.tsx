@@ -1,6 +1,6 @@
 import { Box, Image, Tooltip } from "@chakra-ui/react";
 import { Device } from "./Subcategories";
-import firewall from "../assets/ios-firewall.png";
+import { DropPosition } from "../App";
 
 interface Props {
   device: Device;
