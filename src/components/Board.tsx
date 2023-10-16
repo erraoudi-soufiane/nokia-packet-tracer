@@ -1,5 +1,4 @@
 import { Box } from "@chakra-ui/react";
-import { useState } from "react";
 import ReactFlow, {
   Background,
   BackgroundVariant,
@@ -9,9 +8,9 @@ import ReactFlow, {
   OnConnect,
   OnEdgesChange,
   OnNodesChange,
-  Panel,
 } from "reactflow";
 import "reactflow/dist/style.css";
+import "../customStyle.css";
 
 interface Props {
   board: Node[];
@@ -31,13 +30,7 @@ const Board = ({
   const variant = "cross";
 
   return (
-    <Box
-      marginTop={3}
-      borderRadius={14}
-      bg={"white"}
-      minHeight="550px"
-      style={{ width: "100%", height: "500px" }}
-    >
+    <Box height="100%" borderRadius={14} bg={"white"}>
       <ReactFlow
         nodes={board}
         edges={edges}

@@ -18,6 +18,7 @@ import {
   useNodesState,
 } from "reactflow";
 import DeviceInBoard from "./components/DeviceInBoard";
+import ControlButtons from "./components/ControlButtons";
 
 export interface DropPosition {
   x: number;
@@ -31,7 +32,6 @@ function App() {
   );
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState<Edge[]>([]);
-
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "device",
     drop: (item: { name: string; url: string }, monitor) => {
@@ -92,39 +92,45 @@ function App() {
         base: "1fr",
         lg: "250px 1fr",
       }}
+      height="100vh"
+      templateRows="auto 1fr"
     >
-      <GridItem area="nav">
+      <GridItem area="nav" height="100%">
         <NavBar />
       </GridItem>
 
       <Show above="lg">
-        <GridItem area="aside" paddingX={6}></GridItem>
+        <GridItem area="aside" height="100%">
+          <ControlButtons />
+        </GridItem>
       </Show>
 
-      <GridItem area="main" padding={3}>
-        <HStack>
-          <Stack marginRight={2}>
-            <Categories
-              onSelectCategory={(category) => setSelectedCategory(category)}
+      <GridItem area="main" padding={3} height="100%">
+        <Stack h={"100%"}>
+          <HStack>
+            <Stack marginRight={2}>
+              <Categories
+                onSelectCategory={(category) => setSelectedCategory(category)}
+              />
+              <Subcategories
+                selectedCategory={category}
+                onSelectSubcategory={(subcategory) =>
+                  setSelectedSubcategory(subcategory)
+                }
+              />
+            </Stack>
+            <Devices selctedSubcategory={subcategory} />
+          </HStack>
+          <Box flex="1" height="1fr" ref={drop} marginTop={1.5}>
+            <Board
+              board={nodes}
+              edges={edges}
+              onNodesChange={onNodesChange}
+              onConnect={onConnect}
+              onEdgesChange={onEdgesChange}
             />
-            <Subcategories
-              selectedCategory={category}
-              onSelectSubcategory={(subcategory) =>
-                setSelectedSubcategory(subcategory)
-              }
-            />
-          </Stack>
-          <Devices selctedSubcategory={subcategory} />
-        </HStack>
-        <Box ref={drop}>
-          <Board
-            board={nodes}
-            edges={edges}
-            onNodesChange={onNodesChange}
-            onConnect={onConnect}
-            onEdgesChange={onEdgesChange}
-          />
-        </Box>
+          </Box>
+        </Stack>
       </GridItem>
     </Grid>
   );

@@ -5,6 +5,16 @@ const config: ThemeConfig = {
 };
 
 const theme = extendTheme({
+  styles: {
+    global: {
+      html: {
+        height: "100%",
+      },
+      body: {
+        height: "100%",
+      },
+    },
+  },
   config,
   colors: {
     blue: {
@@ -19,6 +29,7 @@ const theme = extendTheme({
       800: "#2a4365",
       900: "#1A365D",
     },
+    customTeal: "#cecbcb",
   },
 });
 
