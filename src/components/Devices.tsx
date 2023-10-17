@@ -4,12 +4,13 @@ import DeviceComponent from "./Device";
 
 interface Props {
   selctedSubcategory: Subcategory | null;
+  myColorMode: string;
 }
 
-const Devices = ({ selctedSubcategory }: Props) => {
+const Devices = ({ selctedSubcategory, myColorMode }: Props) => {
   return (
     <HStack
-      backgroundColor={"white"}
+      backgroundColor={myColorMode}
       height={"80px"}
       padding={2}
       borderRadius={14}

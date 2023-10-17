@@ -20,16 +20,17 @@ export interface Device {
 interface Props {
   selectedCategory: Category | null;
   onSelectSubcategory: (subcategory: Subcategory) => void;
+  myColorMode: string;
 }
 
-const Subcategories = ({ selectedCategory, onSelectSubcategory }: Props) => {
+const Subcategories = ({
+  selectedCategory,
+  onSelectSubcategory,
+  myColorMode,
+}: Props) => {
+  console.log("HIIIIIIIII" + myColorMode);
   return (
-    <HStack
-      borderRadius={14}
-      backgroundColor={"white"}
-      padding={2}
-      height={"35px"}
-    >
+    <HStack borderRadius={14} bg={myColorMode} padding={2} height={"35px"}>
       {selectedCategory?.subcategories.map((subcategory) => (
         <Box
           key={subcategory.name}

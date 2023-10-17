@@ -1,14 +1,14 @@
 import { Box, Grid, GridItem, HStack, Show, Stack } from "@chakra-ui/react";
-import Categories from "./components/Categories";
+import Categories from "../components/Categories";
 import Subcategories, {
   Category,
   Device,
   Subcategory,
-} from "./components/Subcategories";
-import Devices from "./components/Devices";
-import NavBar from "./components/NavBar";
+} from "../components/Subcategories";
+import Devices from "../components/Devices";
+import NavBar from "../components/NavBar";
 import { useCallback, useState } from "react";
-import Board from "./components/Board";
+import Board from "../components/Board";
 import { useDrop } from "react-dnd";
 import {
   Connection,
@@ -17,8 +17,8 @@ import {
   useEdgesState,
   useNodesState,
 } from "reactflow";
-import DeviceInBoard from "./components/DeviceInBoard";
-import ControlButtons from "./components/ControlButtons";
+import DeviceInBoard from "../components/DeviceInBoard";
+import ControlButtons from "../components/ControlButtons";
 
 export interface DropPosition {
   x: number;

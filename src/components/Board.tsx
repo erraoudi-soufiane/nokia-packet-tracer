@@ -18,6 +18,7 @@ interface Props {
   onNodesChange: OnNodesChange;
   onConnect: OnConnect;
   onEdgesChange: OnEdgesChange;
+  myColorMode: string;
 }
 
 const Board = ({
@@ -26,11 +27,12 @@ const Board = ({
   onConnect,
   edges,
   onEdgesChange,
+  myColorMode,
 }: Props) => {
   const variant = "cross";
 
   return (
-    <Box height="100%" borderRadius={14} bg={"white"}>
+    <Box height="100%" borderRadius={14} bg={myColorMode}>
       <ReactFlow
         nodes={board}
         edges={edges}

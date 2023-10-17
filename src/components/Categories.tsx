@@ -8,9 +8,10 @@ import { Category } from "./Subcategories";
 
 interface Props {
   onSelectCategory: (category: Category) => void;
+  myColorMode: string;
 }
 
-const Categories = ({ onSelectCategory }: Props) => {
+const Categories = ({ onSelectCategory, myColorMode }: Props) => {
   const categories: Category[] = [
     {
       name: "Network",
@@ -315,12 +316,7 @@ const Categories = ({ onSelectCategory }: Props) => {
   ];
 
   return (
-    <HStack
-      height={"35px"}
-      borderRadius={14}
-      backgroundColor={"white"}
-      padding={2}
-    >
+    <HStack height={"35px"} borderRadius={14} bg={myColorMode} padding={2}>
       {categories.map((category) => (
         <Box
           key={category.name}

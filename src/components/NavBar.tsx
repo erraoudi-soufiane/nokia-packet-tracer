@@ -3,10 +3,18 @@ import { Image } from "@chakra-ui/react";
 import logo1 from "../assets/logo1.png";
 import ColorModeSwitch from "./ColorModeSwitch";
 
-const NavBar = () => (
-  <HStack padding={4} justifyContent={"space-between"} bg="#ffffff">
+type Props = {
+  myColorMode: string;
+  setMyColorMode: (mode: string) => void;
+};
+
+const NavBar = ({ myColorMode, setMyColorMode }: Props) => (
+  <HStack padding={4} justifyContent={"space-between"} bg={myColorMode}>
     <Image src={logo1} boxSize={"40px"} />
-    <ColorModeSwitch />
+    <ColorModeSwitch
+      myColorMode={myColorMode}
+      setMyColorMode={setMyColorMode}
+    />
   </HStack>
 );
 

@@ -6,13 +6,14 @@ import App from "./App";
 import "./index.css";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { RouterProvider } from "react-router-dom";
+import router from "./routing/routes";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <DndProvider backend={HTML5Backend}>
       <ChakraProvider theme={theme}>
-        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-        <App />
+        <RouterProvider router={router} />
       </ChakraProvider>
     </DndProvider>
   </React.StrictMode>

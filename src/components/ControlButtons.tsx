@@ -1,48 +1,61 @@
-import { Box, Button, Stack } from "@chakra-ui/react";
-import { EmailIcon } from "@chakra-ui/icons";
+import { Button, Stack, Text } from "@chakra-ui/react";
+import { RepeatClockIcon, LinkIcon, SettingsIcon } from "@chakra-ui/icons";
+import SaveRoundedIcon from "@mui/icons-material/SaveRounded";
+import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
+import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
 
-const ControlButtons = () => {
+interface Props {
+  myColorMode: string;
+}
+
+const ControlButtons = ({ myColorMode }: Props) => {
+  console.log(myColorMode);
   return (
-    <Stack height={"100%"} bg="#ffffff" padding={10}>
+    <Stack height={"100%"} bg={myColorMode} padding={10}>
       <Button
-        leftIcon={<EmailIcon />}
         bg="#cecbcb"
         color="black"
         variant="solid"
         borderRadius={14}
         marginBottom={2}
       >
-        My Projects
+        <RepeatClockIcon />
+        <Text marginLeft={2.5}>My Projects</Text>
       </Button>
       <Button
-        leftIcon={<EmailIcon />}
         bg="#cecbcb"
         color="black"
         variant="solid"
         borderRadius={14}
         marginBottom={2}
       >
-        New Project
+        <LinkIcon />
+        <Text marginLeft={2.5}>New Project</Text>
       </Button>
       <Button
-        leftIcon={<EmailIcon />}
         bg="#cecbcb"
         color="black"
         variant="solid"
         borderRadius={14}
         marginBottom={2}
-        marginTop={370}
       >
-        Settings
+        <BookmarkAddOutlinedIcon />
+        <Text marginLeft={2.5}>Save Project</Text>
       </Button>
       <Button
-        leftIcon={<EmailIcon />}
         bg="#cecbcb"
         color="black"
         variant="solid"
         borderRadius={14}
+        marginBottom={2}
+        marginTop={315}
       >
-        Log Out
+        <SettingsIcon />
+        <Text marginLeft={2.5}>Settings</Text>
+      </Button>
+      <Button bg="#cecbcb" color="black" variant="solid" borderRadius={14}>
+        <LogoutRoundedIcon />
+        <Text marginLeft={2.5}>Log Out</Text>
       </Button>
     </Stack>
   );
