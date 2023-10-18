@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar";
 import { useState } from "react";
 import ControlButtons from "../components/ControlButtons";
 import { Link } from "react-router-dom";
+import ProjectGrid from "../components/ProjectGrid";
 
 export interface DropPosition {
   x: number;
@@ -36,9 +37,9 @@ function App() {
       </Show>
 
       <GridItem area="main" padding={3} flex="1" height="1fr">
-        <Box borderRadius={14} height="100%" marginTop={1.5} bg={myColorMode}>
+        <Box borderRadius={14} marginTop={1.5} height="100%">
           <Heading
-            padding="20px 20px 20px 80px"
+            padding="20px 20px 5px 80px"
             noOfLines={1}
             marginBottom={5}
             as="h4"
@@ -47,11 +48,12 @@ function App() {
           >
             My Projects
           </Heading>
-          <Link to="/new-project">
+          {/* <Link to="/new-project">
             <Text color={myColorMode == "#A5A5A5" ? "white" : "black"}>
               new project{" "}
             </Text>
-          </Link>
+          </Link> */}
+          <ProjectGrid />
         </Box>
       </GridItem>
     </Grid>
