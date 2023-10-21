@@ -1,37 +1,25 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
-import { CanceledError } from "axios";
-import useData from "./useData";
-import { Genre } from "./useGenres";
-import { GameQuery } from "../App";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Graph } from "../components/ProjectCard";
 
-export interface Platform {
-  id: number;
-  name: string;
-  slug: string;
-}
-
-export interface Game {
-  id: number;
-  name: string;
-  background_image: string;
-  parent_platforms: { platform: Platform }[];
-  metacritic: number;
-}
-
-const useProjects = (gameQuery: GameQuery) => {
-  return useData<Game>(
-    "/games",
-    {
-      params: {
-        genres: gameQuery.genre?.id,
-        platforms: gameQuery.platform?.id,
-        ordering: gameQuery.sortOrder?.value,
-        search: gameQuery.searchText,
-      },
-    },
-    [gameQuery]
-  );
+const useProjects = () => {
+  const [graphs, setGraphs] = useState<Graph[]>([]);
+  const [error, setError] = useState("");
+  const [isloading, setLoading] = useState(true);
+  useEffect(() => {
+    axios
+      .get<Graph[]>("http://localhost:8080/user/1/graph/all")
+      .then((res) => {
+        console.log(res.data);
+        setGraphs(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(err.message);
+      });
+  }, []);
+  return { graphs, error, isloading };
 };
 
 export default useProjects;

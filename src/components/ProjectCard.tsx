@@ -1,4 +1,5 @@
 import { Card, CardBody, Heading, Image } from "@chakra-ui/react";
+import thumbnail from "../assets/thumbnail.png";
 
 interface User {
   id: number;
@@ -29,10 +30,10 @@ interface Edge {
 export interface Graph {
   id: number;
   name: string;
-  background_image: string;
-  //   user: User;
-  //   nodes: Node[];
-  //   edges: Edge[];
+  // background_image: string;
+  user: User;
+  nodes: Node[];
+  edges: Edge[];
 }
 
 interface Props {
@@ -48,7 +49,7 @@ const ProjectCard = ({ graph }: Props) => {
       overflow="hidden"
       marginBottom={10}
     >
-      <Image src={graph.background_image} />
+      <Image src={thumbnail} />
       <CardBody>
         <Heading fontSize="lg"> {graph.name} </Heading>
       </CardBody>

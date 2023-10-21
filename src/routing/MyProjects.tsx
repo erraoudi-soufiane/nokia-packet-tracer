@@ -1,16 +1,24 @@
-import { Box, Grid, GridItem, Heading, Show, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Grid,
+  GridItem,
+  HStack,
+  Heading,
+  Show,
+  Text,
+} from "@chakra-ui/react";
 import NavBar from "../components/NavBar";
 import { useState } from "react";
 import ControlButtons from "../components/ControlButtons";
-import { Link } from "react-router-dom";
 import ProjectGrid from "../components/ProjectGrid";
+import SortSelector from "../components/SortSelector";
 
 export interface DropPosition {
   x: number;
   y: number;
 }
 
-function App() {
+function MyProjects() {
   const [myColorMode, setMyColorMode] = useState("#ffffff");
 
   return (
@@ -38,21 +46,24 @@ function App() {
 
       <GridItem area="main" padding={3} flex="1" height="1fr">
         <Box borderRadius={14} marginTop={1.5} height="100%">
-          <Heading
-            padding="20px 20px 5px 80px"
-            noOfLines={1}
-            marginBottom={5}
-            as="h4"
-            size="md"
-            color={myColorMode == "#A5A5A5" ? "white" : "black"}
+          <HStack
+            borderRadius={14}
+            bg={myColorMode}
+            marginRight={"55px"}
+            marginLeft={"25px"}
           >
-            My Projects
-          </Heading>
-          {/* <Link to="/new-project">
-            <Text color={myColorMode == "#A5A5A5" ? "white" : "black"}>
-              new project{" "}
-            </Text>
-          </Link> */}
+            <Heading
+              padding="20px 20px 5px 80px"
+              noOfLines={1}
+              marginBottom={5}
+              as="h4"
+              size="md"
+              color={myColorMode == "#A5A5A5" ? "white" : "black"}
+            >
+              My Projects
+            </Heading>
+            <SortSelector myColorMode={myColorMode} />
+          </HStack>
           <ProjectGrid />
         </Box>
       </GridItem>
@@ -60,4 +71,4 @@ function App() {
   );
 }
 
-export default App;
+export default MyProjects;

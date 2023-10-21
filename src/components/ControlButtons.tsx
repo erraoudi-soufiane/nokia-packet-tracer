@@ -1,15 +1,31 @@
-import { Button, Stack, Text } from "@chakra-ui/react";
+import {
+  Button,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  Input,
+  Stack,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { RepeatClockIcon, LinkIcon, SettingsIcon } from "@chakra-ui/icons";
 import SaveRoundedIcon from "@mui/icons-material/SaveRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
+import { useRef } from "react";
 
 interface Props {
   myColorMode: string;
 }
 
 const ControlButtons = ({ myColorMode }: Props) => {
-  console.log(myColorMode);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = useRef();
+
   return (
     <Stack height={"100%"} bg={myColorMode} padding={10}>
       <Button
@@ -38,6 +54,9 @@ const ControlButtons = ({ myColorMode }: Props) => {
         variant="solid"
         borderRadius={14}
         marginBottom={2}
+        ref={btnRef}
+        colorScheme="teal"
+        onClick={onOpen}
       >
         <BookmarkAddOutlinedIcon />
         <Text marginLeft={2.5}>Save Project</Text>
@@ -57,6 +76,35 @@ const ControlButtons = ({ myColorMode }: Props) => {
         <LogoutRoundedIcon />
         <Text marginLeft={2.5}>Log Out</Text>
       </Button>
+
+      <Drawer
+        isOpen={isOpen}
+        placement="right"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>save your changes to this project ?</DrawerHeader>
+
+          <DrawerBody>
+            <Input placeholder="project name..." />
+          </DrawerBody>
+
+          <DrawerFooter>
+            <Button colorScheme="blue" mr={3}>
+              Save
+            </Button>
+            <Button variant="outline" mr={3}>
+              discard
+            </Button>
+            <Button variant="outline" onClick={onClose}>
+              Cancel
+            </Button>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
     </Stack>
   );
 };

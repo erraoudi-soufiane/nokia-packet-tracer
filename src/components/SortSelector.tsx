@@ -7,11 +7,13 @@ export interface SortOrder {
 }
 
 interface Props {
-  selectedSortOrder: SortOrder | null;
-  onSelectSortOrder: (sortOrder: SortOrder) => void;
+  //   selectedSortOrder: SortOrder | null;
+  //   onSelectSortOrder: (sortOrder: SortOrder) => void;
+  myColorMode: string;
 }
 
-const SortSelector = ({ selectedSortOrder, onSelectSortOrder }: Props) => {
+const SortSelector = ({ myColorMode }: Props) => {
+  const selectedSortOrder: SortOrder = { value: "name", label: "Name" };
   const sortOrders = [
     { value: "-added", label: "Date added" },
     { value: "name", label: "Name" },
@@ -20,8 +22,14 @@ const SortSelector = ({ selectedSortOrder, onSelectSortOrder }: Props) => {
 
   return (
     <Menu>
-      <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        Order By : {selectedSortOrder ? selectedSortOrder.label : "Relevance"}
+      <MenuButton
+        borderRadius={14}
+        color={myColorMode == "#A5A5A5" ? "white" : "black"}
+        as={Button}
+        rightIcon={<BsChevronDown />}
+        colorScheme="gray"
+      >
+        Order By : {selectedSortOrder ? selectedSortOrder.label : "name"}
       </MenuButton>
       <MenuList>
         {sortOrders.map((sortOrder) => (
