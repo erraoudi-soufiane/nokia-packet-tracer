@@ -16,7 +16,7 @@ import { RepeatClockIcon, LinkIcon, SettingsIcon } from "@chakra-ui/icons";
 import SaveRoundedIcon from "@mui/icons-material/SaveRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
-import { useRef } from "react";
+import { LegacyRef, useRef } from "react";
 
 interface Props {
   myColorMode: string;
@@ -24,7 +24,7 @@ interface Props {
 
 const ControlButtons = ({ myColorMode }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = useRef();
+  const btnRef = useRef<HTMLButtonElement | null>(null);
 
   return (
     <Stack height={"100%"} bg={myColorMode} padding={10}>
@@ -97,7 +97,7 @@ const ControlButtons = ({ myColorMode }: Props) => {
               Save
             </Button>
             <Button variant="outline" mr={3}>
-              discard
+              Discard
             </Button>
             <Button variant="outline" onClick={onClose}>
               Cancel
