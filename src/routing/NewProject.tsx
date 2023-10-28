@@ -18,16 +18,14 @@ import {
   useNodesState,
 } from "reactflow";
 import DeviceInBoard from "../components/DeviceInBoard";
-import ControlButtons from "../components/ControlButtons";
+import AsideBar from "../components/asideBar";
 
 export interface DropPosition {
   x: number;
   y: number;
 }
 
-function App() {
-  // backend connection : save a project
-
+function NewProject() {
   const [myColorMode, setMyColorMode] = useState("#ffffff");
   const [category, setSelectedCategory] = useState<Category | null>(null);
   const [subcategory, setSelectedSubcategory] = useState<Subcategory | null>(
@@ -35,6 +33,7 @@ function App() {
   );
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState<Edge[]>([]);
+
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "device",
     drop: (item: { name: string; url: string }, monitor) => {
@@ -87,6 +86,7 @@ function App() {
 
   return (
     <Grid
+      bg={"#cecbcb"}
       templateAreas={{
         base: `"nav" "main"`,
         lg: `"nav nav" "aside main"`,
@@ -104,7 +104,7 @@ function App() {
 
       <Show above="lg">
         <GridItem area="aside" height="100%">
-          <ControlButtons myColorMode={myColorMode} />
+          <AsideBar nodes={nodes} edges={edges} myColorMode={myColorMode} />
         </GridItem>
       </Show>
 
@@ -115,6 +115,7 @@ function App() {
               <Categories
                 myColorMode={myColorMode}
                 onSelectCategory={(category) => setSelectedCategory(category)}
+                selectedCategory={category}
               />
               <Subcategories
                 myColorMode={myColorMode}
@@ -145,4 +146,4 @@ function App() {
   );
 }
 
-export default App;
+export default NewProject;

@@ -1,4 +1,4 @@
-import { Box, Image, Tooltip } from "@chakra-ui/react";
+import { Box, Text, Image, Tooltip } from "@chakra-ui/react";
 import { Device } from "./Subcategories";
 import { useDrag } from "react-dnd";
 
@@ -15,10 +15,15 @@ const DeviceComponent = ({ device }: Props) => {
   });
 
   return (
-    <Box ref={drag} style={{ opacity: isDragging ? 0.5 : 1 }}>
+    <Box
+      ref={drag}
+      style={{ opacity: isDragging ? 0.5 : 1 }}
+      className="d-flex justify-center items-center"
+    >
       <Tooltip label={device.name} aria-label="A tooltip">
-        <Image src={device.url} boxSize={"25px"} />
+        <Image src={device.url} boxSize={"30px"} />
       </Tooltip>
+      <Text fontSize="xs">{device.name}</Text>
     </Box>
   );
 };

@@ -1,105 +1,145 @@
 import { Image, HStack, Tooltip, Box } from "@chakra-ui/react";
+import { Category } from "./Subcategories";
 import NetworkDevices from "../assets/cloud.png";
 import firewall from "../assets/ios-firewall.png";
-import router from "../assets/router.png";
+import router from "../assets/network devices/router.png";
 import workgroupSwitch from "../assets/workgroup-switch.png";
-import wirelessTransport from "../assets/wireless-transport.png";
-import { Category } from "./Subcategories";
+import wirelessTransport from "../assets/network devices/wireless-transport.png";
+import IE2000 from "../assets/network devices/IE2000.png";
+import MultilayerSwitch from "../assets/network devices/MultilayerSwitch.png";
+import switchImg from "../assets/network devices/switch.png";
+import bridge from "../assets/network devices/bridge.png";
+import coaxialSplitter from "../assets/network devices/coaxialSplitter.png";
+import hub from "../assets/network devices/hub.png";
+import repeater from "../assets/network devices/repeater.png";
+import accesspoint from "../assets/network devices/accesspoint.png";
+import MerakiMX65W from "../assets/network devices/Meraki-MX65W.png";
+import fileserver from "../assets/network devices/fileserver.png";
+import homeGateway from "../assets/network devices/homeGateway.png";
+import radioTower from "../assets/network devices/radio-tower.png";
+import wirelessRouter from "../assets/network devices/wireless-router.png";
+import firewall1 from "../assets/network devices/firewall.png";
+import WANEmulation from "../assets/network devices/WAN Emulation.png";
+import modem from "../assets/network devices/modem.png";
+import wirelessRouter1 from "../assets/network devices/wireless-router1.png";
+import fileServer from "../assets/End Devices/file-server.png";
+import airCooler from "../assets/components/air cooler.png";
+import connections from "../assets/connections/connections.png";
+import Alarm from "../assets/components/Alarm.png";
+import pcRoutercard from "../assets/multiuser connector/pc-removebg-preview.png";
+import folder from "../assets/miscellaneous/folder-removebg-preview.png";
+import laptop from "../assets/End Devices/laptop.png";
 
 interface Props {
+  selectedCategory: Category | null;
   onSelectCategory: (category: Category) => void;
   myColorMode: string;
 }
 
-const Categories = ({ onSelectCategory, myColorMode }: Props) => {
+const Categories = ({
+  onSelectCategory,
+  selectedCategory,
+  myColorMode,
+}: Props) => {
   const categories: Category[] = [
     {
-      name: "Network",
-      url: NetworkDevices,
+      name: "Network devices",
+      url: wirelessRouter1,
       subcategories: [
         {
-          name: "Network1",
-          url: NetworkDevices,
+          name: "Routers",
+          url: router,
           devices: [
-            { name: "Network11", url: NetworkDevices },
-            { name: "Network12", url: NetworkDevices },
-            { name: "Network13", url: NetworkDevices },
-            { name: "Network14", url: NetworkDevices },
-            { name: "Network15", url: NetworkDevices },
-            { name: "Network16", url: NetworkDevices },
+            { name: "829", url: router },
+            { name: "1240", url: router },
+            { name: "1841", url: router },
+            { name: "1941", url: router },
+            { name: "2620XM", url: router },
+            { name: "2811", url: router },
+            { name: "2911", url: router },
+            { name: "2621XM", url: router },
+            { name: "2901", url: router },
+            { name: "81910X", url: router },
+            { name: "PTRouter", url: router },
+            { name: "PTEmpty", url: router },
+            { name: "2811", url: router },
+            { name: "4321", url: router },
           ],
         },
         {
-          name: "Network2",
-          url: NetworkDevices,
+          name: "Switches",
+          url: switchImg,
           devices: [
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
+            { name: "2960", url: switchImg },
+            { name: "PT-Switch", url: switchImg },
+            { name: "PT-Empty", url: switchImg },
+            { name: "3560-24PS", url: MultilayerSwitch },
+            { name: "3650-24PS", url: MultilayerSwitch },
+            { name: "IE2000", url: IE2000 },
+            { name: "PT-Bridge", url: bridge },
+            { name: "2950-24", url: switchImg },
+            { name: "5920T-24", url: switchImg },
           ],
         },
         {
-          name: "Network3",
-          url: NetworkDevices,
+          name: "Hubs",
+          url: hub,
           devices: [
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
+            { name: "Hub-PT", url: hub },
+            { name: "Repeater-PT", url: repeater },
+            { name: "CoAxialSplitter-PT", url: coaxialSplitter },
           ],
         },
         {
-          name: "Network4",
-          url: NetworkDevices,
+          name: "Wireless Devices",
+          url: wirelessTransport,
           devices: [
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
+            { name: "Meraki-MX65W", url: MerakiMX65W },
+            { name: "LAP-PT", url: accesspoint },
+            { name: "3702i", url: accesspoint },
+            { name: "WLC", url: accesspoint },
+            { name: "3504", url: accesspoint },
+            { name: "2504", url: accesspoint },
+            { name: "Home Router", url: wirelessRouter },
+            { name: "AP-PT", url: accesspoint },
+            { name: "AP-PT-A", url: accesspoint },
+            { name: "AP-PT-AC", url: accesspoint },
+            { name: "AP-PT-N", url: accesspoint },
+            { name: "WRT300N", url: wirelessRouter },
+            { name: "Home Gateway", url: homeGateway },
+            { name: "Cell Tower", url: radioTower },
+            { name: "CO server", url: fileserver },
           ],
         },
         {
-          name: "Network5",
-          url: NetworkDevices,
+          name: "Firewalls",
+          url: firewall1,
           devices: [
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
+            { name: "5506-X", url: firewall1 },
+            { name: "5505", url: firewall },
           ],
         },
         {
-          name: "Network6",
-          url: NetworkDevices,
+          name: "WAN Emulation",
+          url: WANEmulation,
           devices: [
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
-            { name: "", url: NetworkDevices },
+            { name: "Cloud-PT", url: WANEmulation },
+            { name: "PT-Empty", url: WANEmulation },
+            { name: "DSL Modem", url: modem },
+            { name: "Cable Modem", url: modem },
           ],
         },
       ],
     },
     {
       name: "End",
-      url: firewall,
+      url: fileServer,
       subcategories: [
         {
           name: "End1",
           url: firewall,
           devices: [
-            { name: "", url: firewall },
+            { name: "laptop", url: laptop },
             { name: "", url: firewall },
             { name: "", url: firewall },
             { name: "", url: firewall },
@@ -135,7 +175,7 @@ const Categories = ({ onSelectCategory, myColorMode }: Props) => {
     },
     {
       name: "Comopnents",
-      url: router,
+      url: airCooler,
       subcategories: [
         {
           name: "components1",
@@ -189,7 +229,7 @@ const Categories = ({ onSelectCategory, myColorMode }: Props) => {
     },
     {
       name: "Connections",
-      url: workgroupSwitch,
+      url: connections,
       subcategories: [
         {
           name: "Connections1",
@@ -231,7 +271,7 @@ const Categories = ({ onSelectCategory, myColorMode }: Props) => {
     },
     {
       name: "MultiUser",
-      url: wirelessTransport,
+      url: pcRoutercard,
       subcategories: [
         {
           name: "MultiUser1",
@@ -273,7 +313,7 @@ const Categories = ({ onSelectCategory, myColorMode }: Props) => {
     },
     {
       name: "Miscella",
-      url: wirelessTransport,
+      url: folder,
       subcategories: [
         {
           name: "Miscella1",
@@ -321,10 +361,11 @@ const Categories = ({ onSelectCategory, myColorMode }: Props) => {
         <Box
           key={category.name}
           onClick={() => onSelectCategory(category)}
-          marginRight={4}
+          marginRight={2.5}
+          // bg={selectedCategory === category ? "green" : "transparent"}
         >
           <Tooltip label={category.name} aria-label="A tooltip">
-            <Image boxSize={"25px"} src={category.url} />
+            <Image marginLeft={"1px"} boxSize={"30px"} src={category.url} />
           </Tooltip>
         </Box>
       ))}

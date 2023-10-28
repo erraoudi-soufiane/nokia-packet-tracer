@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import NavBar from "../components/NavBar";
 import { useState } from "react";
-import ControlButtons from "../components/ControlButtons";
+import ControlButtons from "../components/asideBar";
 import ProjectGrid from "../components/ProjectGrid";
 import SortSelector from "../components/SortSelector";
 
@@ -40,7 +40,7 @@ function MyProjects() {
 
       <Show above="lg">
         <GridItem area="aside" height="100%">
-          <ControlButtons myColorMode={myColorMode} />
+          <ControlButtons myColorMode={myColorMode} nodes={[]} edges={[]} />
         </GridItem>
       </Show>
 

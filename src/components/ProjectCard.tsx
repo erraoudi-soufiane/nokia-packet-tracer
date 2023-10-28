@@ -1,15 +1,15 @@
 import { Card, CardBody, Heading, Image } from "@chakra-ui/react";
 import thumbnail from "../assets/thumbnail.png";
 
-interface User {
+export interface User {
   id: number;
   username: string;
   email: string;
-  //   password: string;
-  //   graphs: Graph[];
+  password: string;
+  graphs: Graph[];
 }
 
-interface Node {
+export interface Node {
   id: number;
   idInGraph: number;
   x: number;
@@ -19,7 +19,7 @@ interface Node {
   //   graph: Graph;
 }
 
-interface Edge {
+export interface Edge {
   id: number;
   idInGraph: string;
   //   graph: Graph;
